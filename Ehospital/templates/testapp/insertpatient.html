@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    <div class="addpatient">
+      <h1>Add Patient Information</h1>
+      <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="pname" placeholder="Patient Name" required><br>
+        <input type="text" name="paddr" placeholder="Patient Address" required><br>
+        <input type="number" name="pphno" placeholder="Patient Number" required><br>
+        <input type="number" name="page" placeholder="Patient Age" required><br>
+        <div class="gender"><br>
+          select gender
+          <input type="radio" name="pgender" value="male">Male
+          <input type="radio" name="pgender" value="female">Female
+          <input type="radio" name="pgender" value="transgender">Transgender
+        </div>
+        <input type="text" name="pbldgp" placeholder="Patient Blood Group" required><br>
+        <input type="text" name="pdisease" placeholder="Patient Disease" required><br>
+        <input type="submit" value="Insert Record"><input type="reset" value="Clear all">
+      </form>
+    </div>
+  </body>
+</html>

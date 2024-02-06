@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    <div class="patientbill">
+      <h1>Bill of the Patient</h1><hr>
+      <form method="post">
+        {% csrf_token %}
+        <p><b>Discharge Date:</b> {{pdata.dischargedate}}</p>
+        <input type="text" value="{{pid}}" readonly><br>
+        <input type="text" value="{{pname}}" readonly><br>
+        <input type="text" value="{{pphno}}" readonly><br>
+        <input type="number" name="days" value="{{pdata.days}}" placeholder="Total Days"><br>
+        <input type="number" name="wardcharge" value="{{pdata.wardcharge}}" placeholder="Ward Charges"><br>
+        <p><b>Total Ward Charge:</b> {{totalwardchg}}</p>
+        <input type="number" name="drfee" value="{{pdata.drfee}}" placeholder="Dr. Fees"><br>
+        <input type="number" name="srvcharge" value="{{pdata.srvcharge}}" placeholder="Service Charge"><br>
+        <input type="text" name="paidamt" value="{{pdata.paidamt}}" placeholder="Deposite Some cash">
+        <p><b>Total Amount:</b> {{ptotalamt}}</p>
+        <p><b>Due Amount:</b> {{dueamt}}</p>
+        <p><b>Full Payment Status:</b> {{pdata.payment}}</p>
+        <!-- <div class="payment"><br>
+          Full Payment Status!
+          {% if pdata.payment == 'paid' %}
+          <input type="radio" name="payment" value="paid" checked disabled>Paid
+          <input type="radio" name="payment" value="not paid" disabled>Not Paid
+          {% else %}
+          <input type="radio" name="payment" value="paid" disabled>Paid
+          <input type="radio" name="payment" value="not paid" checked disabled>Not Paid
+          {% endif %}
+        </div> -->
+        <input type="submit" value="Submin"><a href="/home">Home</a>
+      </form>
+    </div>
+  </body>
+</html>

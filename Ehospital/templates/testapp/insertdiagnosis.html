@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    <div class="adddiagnosis">
+      <h1>Add Patient Diagnosis</h1>
+      <form method="POST">
+        {% csrf_token %}
+        <input type="text" value="{{pid}}" readonly><br>
+        <input type="text" value="{{pname}}" readonly><br>
+        <input type="text" value="{{pphno}}" readonly><br>
+        <input type="text" value="{{pdis}}" readonly><br>
+        <input type="text" name="drname" placeholder="Dr. Name" required><br>
+        <input type="text" name="psymptoms" placeholder="Patient Symptoms"><br>
+        <input type="text" name="pdig" placeholder="Required Diagnosis" required><br>
+        <input type="text" name="pmdcn" placeholder="Required Medicines" required><br>
+        <div class="addmissionreq"><br>
+          Addmission Required ?
+          <input type="radio" name="paddm" value="yes">Yes
+          <input type="radio" name="paddm" value="no">No
+        </div>
+        <input type="submit" value="Insert Record"><input type="reset" value="Clear all">
+      </form>
+    </div>
+  </body>
+</html>

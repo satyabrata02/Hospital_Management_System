@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    <div class="displaydata">
+      <h1>Patient Information</h1>
+      <h3>Patient id: {{pdata.patientid}}</h3>
+      <p>Patient Admission Date: {{pdata.admissiondate}}</p>
+      <p>Patient Name: {{pdata.pname}}</p>
+      <p>Patient address: {{pdata.address}}</p>
+      <p>Patient Contact No: {{pdata.phonenumber}}</p>
+      <p>Patient Age: {{pdata.age}}</p>
+      <p>Patient Gender: {{pdata.gender}}</p>
+      <p>Patient Blood Group: {{pdata.bloodgroup}}</p>
+      <p>Patient Disease: {{pdata.disease}}</p><br>
+
+      {% if pdata2 != '' %}
+      <h1>Patient Check up Details</h1>
+      <p>Patient Dr. Name: {{pdata2.drname}}</p>
+      <p>Patient Dected Symptoms: {{pdata2.symptoms}}</p>
+      <p>Patient Diagnosis: {{pdata2.diagnosis}}</p>
+      <p>Patient Medicines: {{pdata2.medicines}}</p>
+      <p>Patient Addmission Required: {{pdata2.addmissionreq}}</p>
+      {% endif %}
+      {% if pdata3 != '' %}
+      <h1>Patient Bed Admission Details</h1>
+      <p>Patient Bed Admission Date: {{pdata3.admitdate}}</p>
+      <p>Patient Relative Name: {{pdata3.prelname}}</p>
+      <p>Patient and Relative Relation: {{pdata3.relrelation}}</p>
+      <p>Patient Relative's No: {{pdata3.prephoneno}}</p>
+      <p>Patient Admitted Room No: {{pdata3.roomno}}</p>
+      <p>Assigned Staffs for Patient: {{pdata3.assignedstaffs}}</p>
+      {% endif %}
+      <a href="/cnfuser2">Check Another Patient</a><br>
+      <a href="/home">Home</a>
+    </div>
+  </body>
+</html>

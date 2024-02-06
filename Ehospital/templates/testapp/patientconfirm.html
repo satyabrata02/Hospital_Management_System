@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    <div class="confirm">
+      <h1>E-Health care management system</h1><hr>
+      <h2>Enter Patient ID Number</h2>
+      <form method="post">
+        {% csrf_token %}
+        <input type="number" name="pid" required><br>
+        <p>{{nfd}}</p>
+        <input type="submit" value="Next"><a href="/home">Home</a>
+      </form>
+    </div>
+  </body>
+</html>

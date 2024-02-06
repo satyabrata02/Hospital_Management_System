@@ -1,0 +1,13 @@
+body{
+  background-color: cyan;
+  text-align: center;
+}
+a{
+  line-height: 2rem;
+  text-decoration: none;
+  font-size: 22px;
+  color: red;
+}
+input{
+  margin-top: 10px;
+}

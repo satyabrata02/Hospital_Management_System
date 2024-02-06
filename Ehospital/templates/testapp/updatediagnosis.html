@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    <div class="adddiagnosis">
+      <h1>Update Patient Diagnosis</h1>
+      <form method="POST">
+        {% csrf_token %}
+        <input type="text" value="{{pid}}" readonly><br>
+        <input type="text" value="{{pname}}" readonly><br>
+        <input type="text" value="{{pphno}}" readonly><br>
+        <input type="text" value="{{pdata.drname}}" readonly><br>
+        <p>Previously Detected Symptoms: {{pdata.symptoms}}</p>
+        <input type="text" name="psymptoms" placeholder="Patient Symptoms"><br>
+        <p>Previous Diagnosis: {{pdata.diagnosis}}</p>
+        <input type="text" name="pdig" placeholder="Diagnosis"><br>
+        <p>Previous Medicines: {{pdata.medicines}}</p>
+        <input type="text" name="pmdcn" placeholder="Medicines"><br>
+        <div class="addmissionreq">
+          Addmission Required ?
+          {% if pdata.addmissionreq == 'yes' %}
+          <input type="radio" name="paddm" value="yes" checked disabled>Yes
+          <input type="radio" name="paddm" value="no" disabled>No
+          {% else %}
+          <input type="radio" name="paddm" value="yes">Yes
+          <input type="radio" name="paddm" value="no" checked>No
+          {% endif %}
+        </div><br>
+        <input type="submit" value="Update Record"><a href="/home">Home</a>
+      </form>
+    </div>
+  </body>
+</html>

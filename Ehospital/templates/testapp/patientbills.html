@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    <div class="patientbill">
+      <h1>Bill of the Patient</h1><hr>
+      <form method="post">
+        {% csrf_token %}
+        <input type="text" value="{{pid}}" readonly><br>
+        <input type="text" value="{{pname}}" readonly><br>
+        <input type="text" value="{{pphno}}" readonly><br>
+        <input type="number" name="days" placeholder="Total Days" required><br>
+        <input type="number" name="wardcharge" placeholder="Ward Charges" required><br>
+        <input type="number" name="drfee" placeholder="Dr. Fees" required><br>
+        <input type="number" name="srvcharge" placeholder="Service Charge" required><br>
+        <!-- <div class="payment"><br>
+          Full Payment Status!
+          <input type="radio" name="payment" value="paid">Paid
+          <input type="radio" name="payment" value="not paid">Not Paid
+        </div> -->
+        <input type="submit" value="Next"><a href="/home">Home</a>
+      </form>
+    </div>
+  </body>
+</html>

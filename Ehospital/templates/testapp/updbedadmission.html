@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    <div class="bedadm">
+      <h1>Patient Bed Admission</h1>
+      <form method="post">
+        {% csrf_token %}
+        <input type="text" value="{{pid}}" readonly><br>
+        <input type="text" value="{{pname}}" readonly><br>
+        <input type="text" value="{{pphno}}" readonly><br>
+        <p>Bed Admission Date: {{pdata.admitdate}}</p>
+        <input type="text" name="prelname" value="{{pdata.prelname}}" readonly><br>
+        <input type="text" name="relrelation" value="{{pdata.relrelation}}" readonly><br>
+        <input type="number" name="prephoneno" value="{{pdata.prephoneno}}" required><br>
+        <input type="text" name="roomno" value="{{pdata.roomno}}" required><br>
+        <input type="text" name="assignedstaffs" value="{{pdata.assignedstaffs}}" required><br>
+        <input type="checkbox" name="termsorcond" value="{{tnc}}" id="tnc" required><label for="tnc">Terms and Conditions</label><br>
+        <input type="submit" value="Insert Record"><input type="reset" value="Clear all">
+      </form>
+    </div>
+  </body>
+</html>
